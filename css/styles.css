@@ -51,7 +51,9 @@ Global Styles
 ===============
 */
 
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -148,6 +150,35 @@ p {
   border-radius: 0.5rem;
 }
 
+.section {
+  padding: 5rem 0;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section__heading {
+  text-transform: uppercase;
+}
+
+.section__heading span {
+  color: var(--clr-primary-5);
+}
+
+.section__center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+@media screen and (min-width: 992px) {
+  .section__center {
+    width: 95vw;
+  }
+}
+
 /*
 =============== 
 Navbar
@@ -217,6 +248,44 @@ Hero
 About
 ===============
 */
+.about__img,
+.about__info {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .about__center {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .about__img,
+  .about__info {
+    flex: 0 0 calc(50% - 2rem);
+    margin-bottom: 0;
+    /* no need to have margin on the bottom on bigger screens */
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .about__img::before {
+    content: " ";
+    position: absolute;
+    border: 0.5rem solid var(--clr-primary-5);
+    width: 100%;
+    height: 100%;
+    top: -1.5rem;
+    left: -1.5rem;
+    z-index: -1;
+  }
+
+  .about__img {
+    position: relative;
+  }
+}
+
 /* section add to globals */
 /* title add to globals */
 /* section center add to globals */
